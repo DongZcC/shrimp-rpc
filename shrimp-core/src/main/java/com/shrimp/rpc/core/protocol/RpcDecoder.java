@@ -19,6 +19,7 @@ public class RpcDecoder extends LengthFieldBasedFrameDecoder {
     private static final Logger LOGGER = LoggerFactory.getLogger(RpcDecoder.class);
     private Serializer serializer = new KryoSerializer();
 
+    //长度字段在一开始 偏移量为 0 ，长度为 4byte ， 一开始跳过4byte的长度字段
     public RpcDecoder(int maxFrameLength) {
         super(maxFrameLength, 0, 4, 0, 4);
     }

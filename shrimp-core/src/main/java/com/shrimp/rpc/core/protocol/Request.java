@@ -14,5 +14,6 @@ public class Request {
     private Class<?> clazz;
     private String method;
     private Object[] params;
+    private Class<?>[] parameterTypes;
     private long requestTime;
 }
