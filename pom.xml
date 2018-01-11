@@ -9,9 +9,24 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>shrimp-core</module>
+        <module>shrimp-provider</module>
+        <module>shrimp-example</module>
     </modules>
 
     <packaging>pom</packaging>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
     <dependencyManagement>
         <dependencies>
@@ -76,6 +91,26 @@
                 <version>2.9.1</version>
             </dependency>
 
+            <!--添加cglib依赖-->
+            <dependency>
+                <groupId>cglib</groupId>
+                <artifactId>cglib</artifactId>
+                <version>3.2.0</version>
+            </dependency>
+
+            <!--添加对象连接池依赖-->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-pool2</artifactId>
+                <version>2.4.2</version>
+            </dependency>
+
+            <!--添加集合框架依赖-->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-collections4</artifactId>
+                <version>4.1</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 </project>
