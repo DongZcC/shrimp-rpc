@@ -2,8 +2,7 @@ package com.shrimp.rpc.core.bootstrap;
 
 import com.google.common.base.Preconditions;
 import com.shrimp.rpc.core.client.ClientImpl;
-import com.shrimp.rpc.core.rpcproxy.CglibRpcProxy;
-import com.shrimp.rpc.core.rpcproxy.RpcProxy;
+
 
 /**
  * 功能说明: <br>
@@ -17,7 +16,6 @@ public class ClientBuilder<T> {
     private String zkConn;
     private Class<T> serviceInterface;
     private int requestTimeoutMillis = 10000;
-    private Class<? extends RpcProxy> clientProxyClass = CglibRpcProxy.class;
 
     public static <T> ClientBuilder<T> builder() {
         return new ClientBuilder<>();
@@ -43,10 +41,7 @@ public class ClientBuilder<T> {
         return this;
     }
 
-    public ClientBuilder<T> clientProxyClass(Class<? extends RpcProxy> clientProxyClass) {
-        this.clientProxyClass = clientProxyClass;
-        return this;
-    }
+
 
     public T build() {
         //因Curator底层依赖guava，刚好可以拿来验证

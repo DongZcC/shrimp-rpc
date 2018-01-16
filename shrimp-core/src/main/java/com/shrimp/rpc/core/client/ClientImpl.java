@@ -5,6 +5,7 @@ import com.shrimp.rpc.core.exception.RequestTimeoutException;
 import com.shrimp.rpc.core.protocol.Request;
 import com.shrimp.rpc.core.protocol.Response;
 import com.shrimp.rpc.core.rpcproxy.CglibRpcProxy;
+import com.shrimp.rpc.core.rpcproxy.DynamicRpcProxy;
 import com.shrimp.rpc.core.rpcproxy.RpcProxy;
 import static com.shrimp.rpc.core.utils.ResponseMapHelper.responseMap;
 import com.shrimp.rpc.core.utils.ResponseMapHelper;
@@ -50,7 +51,7 @@ public class ClientImpl implements Client {
     private EventLoopGroup eventLoopGroup = new NioEventLoopGroup(2);
     private String zkConn;
     private CuratorFramework curatorFramework;
-    private Class<? extends RpcProxy> clientProxyClass;
+    private Class<? extends RpcProxy> clientProxyClass = DynamicRpcProxy.class;
     private RpcProxy rpcProxy;
 
     public static CopyOnWriteArrayList<ChannelConf> channelWrappers = new CopyOnWriteArrayList<>();
