@@ -175,7 +175,7 @@ public class ClientImpl implements Client {
             //建立一个ResponseMap , 将requestId作为键，服务端的回应内容作为值保存在blockingQueue
             BlockingQueue<Response> blockingQueue = new ArrayBlockingQueue<Response>(1);
             responseMap.put(request.getRequestId(), blockingQueue);
-            return blockingQueue.poll(requestTimeoutMillis, TimeUnit.NANOSECONDS);
+            return blockingQueue.poll(requestTimeoutMillis, TimeUnit.MILLISECONDS);
         } catch (InterruptedException e) {
             throw new RequestTimeoutException("service " + serviceName + "method" + method + "timeout");
         } finally {
