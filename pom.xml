@@ -11,6 +11,7 @@
         <module>shrimp-core</module>
         <module>shrimp-provider</module>
         <module>shrimp-example</module>
+        <module>biorpc</module>
     </modules>
 
     <packaging>pom</packaging>
